@@ -5,7 +5,7 @@ import { Button } from './ui/button'
 function Header() {
    const {user,isSignedIn} =useUser();
   return (
-    <div className='flex justify-between items-center shadow-sm p-5'>
+    <div className='flex justify-between items-center shadow-sm p-4'>
         <img src="/logo.svg" alt="" />
         <ul className='hidden md:flex gap-16'>
             <li className='font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary'>Home</li>

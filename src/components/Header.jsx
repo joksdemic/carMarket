@@ -1,6 +1,7 @@
 import React from 'react'
 import { UserButton, useUser } from '@clerk/clerk-react'
 import { Button } from './ui/button'
+import { Link } from 'react-router-dom'
 
 function Header() {
    const {user,isSignedIn} =useUser();
@@ -17,7 +18,9 @@ function Header() {
         {isSignedIn?
             <div className='flex items-center gap-5'>
                 <UserButton/>
+                <Link to={'/profile'}>
                 <Button>Submit Listing</Button>
+                </Link>
             </div>
             :
             <Button>Submit Listing</Button>

@@ -6,9 +6,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Separator } from "@/components/ui/separator"
+import { Separator } from "@/components/ui/separator";
 import { IoSearchSharp } from "react-icons/io5";
-import Data from "./Shared/Data";
+import Data from "../Shared/Data";
 
 function Search() {
   return (
@@ -22,32 +22,31 @@ function Search() {
           <SelectItem value="dark">Old</SelectItem>
         </SelectContent>
       </Select>
-      <Separator orientation="vertical" className="bg-[#eef0fc]"/>
+      <Separator orientation="vertical" className="bg-[#eef0fc]" />
       <Select>
-      <SelectTrigger className="outline-none md:border-none w-full shadow-none">
+        <SelectTrigger className="outline-none md:border-none w-full shadow-none">
           <SelectValue placeholder="Car brand" />
         </SelectTrigger>
         <SelectContent className="bg-white">
-            {Data.CarBrands.map((brand,index) => (
-              <SelectItem value={brand.name}>{brand.name}</SelectItem>
-            ))}
-        </SelectContent>      
+          {Data.CarBrands.map((brand, index) => (
+            <SelectItem value={brand.name}>{brand.name}</SelectItem>
+          ))}
+        </SelectContent>
       </Select>
-        <Separator orientation="vertical" className="bg-[#eef0fc]"/>
+      <Separator orientation="vertical" className="bg-[#eef0fc]" />
       <Select>
-      <SelectTrigger className="outline-none md:border-none w-full shadow-none">
+        <SelectTrigger className="outline-none md:border-none w-full shadow-none">
           <SelectValue placeholder="Pricing" />
         </SelectTrigger>
         <SelectContent className="bg-white">
-        {Data.Pricing.map((pricing,index) => (
-              <SelectItem value={pricing.amount}>{pricing.amount}</SelectItem>
-            ))}
+          {Data.Pricing.map((pricing, index) => (
+            <SelectItem value={pricing.amount}>{pricing.amount}</SelectItem>
+          ))}
         </SelectContent>
       </Select>
       <div>
-      <IoSearchSharp className="text-[35px] bg-[#eef0fc] cursor-pointer rounded-full p-2 text-white hover:scale-105 transition-all" />
+        <IoSearchSharp className="text-[35px] bg-[#eef0fc] cursor-pointer rounded-full p-2 text-white hover:scale-105 transition-all" />
       </div>
-      
     </div>
   );
 }

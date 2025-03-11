@@ -15,6 +15,8 @@ import UploadImages from "./components/UploadImages";
 import { RiLoader4Line } from "react-icons/ri";
 import { toast } from 'sonner'
 import { useNavigate } from 'react-router-dom'
+import { useUser } from '@clerk/clerk-react'
+import moment from "moment";
 
 function AddListing() {
   const [formData, setFormData] = useState([]);
@@ -22,6 +24,7 @@ function AddListing() {
   const [triggleUploadImages, setTriggleUploadImages] = useState();
   const [loader, setLoader] = useState(false);
   const navigate=useNavigate();
+  const {user} = useUser();
 
   const handleInputChange = (name, value) => {
     setFormData((prevData) => ({
@@ -51,6 +54,8 @@ function AddListing() {
         .values({
           ...formData,
           features: featuresData,
+          createdBy:user?.primaryEmailAddress?.emailAddress,
+          postedOn:moment().format("DD/MM/YYYY")
         })
         .returning({ id: CarListing.id });
       if (result) {
